@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agora Tem Especialistas</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="header">
+        <h1>Agora tem <span class="highlight">BRIEFING</span></h1>
+    </header>
+
+    <main class="form-container">
+        <div class="card azul">
+            <label for="regiao">REGIÃO:</label>
+            <select id="regiao" onchange="updateUF()">
+                <option value="">TODOS</option>
+                <option value="NORDESTE">NORDESTE</option>
+                <option value="NORTE">NORTE</option>
+                <option value="CENTRO-OESTE">CENTRO-OESTE</option>
+                <option value="SUDESTE">SUDESTE</option>
+                <option value="SUL">SUL</option>
+            </select>
+        </div>
+
+        <div class="card verde">
+            <label for="uf">UF:</label>
+            <select id="uf" onchange="updateMacro()">
+                <option value="">TODOS</option>
+            </select>
+        </div>
+
+        <div class="card amarelo">
+            <label for="macro">MACRORREGIÃO DE SAÚDE:</label>
+            <select id="macro" onchange="updateRegiaoSaude()">
+                <option value="">TODOS</option>
+            </select>
+        </div>
+
+        <div class="card vermelho">
+            <label for="regiaoSaude">REGIÃO DE SAÚDE:</label>
+            <select id="regiaoSaude" onchange="updateMunicipios()">
+                <option value="">TODOS</option>
+            </select>
+        </div>
+
+        <div class="card cinza">
+            <label for="municipio">MUNICÍPIO:</label>
+            <select id="municipio" onchange="updateUnidade()">
+                <option value="">TODOS</option>
+            </select>
+        </div>
+
+        <div class="card cinza">
+            <label for="unidade">UNIDADE-CNES:</label>
+            <select id="unidade">
+                <option value="">TODOS</option>
+            </select>
+        </div>
+
+        <div class="buttons">
+            <button onclick="startLoading()">Gerar Briefing</button>
+            <button class="clear-btn" onclick="clearForm()">Limpar</button>
+        </div>
+
+<div class="progress-container" id="progressSection">
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill">0%</div>
+  </div>
+</div>
+
+
+        <div class="files-container" id="filesSection" style="display: none;">
+            <h2>Arquivos Gerados</h2>
+            <ul>
+                <li><a href="#">📄 Briefing.docx</a></li>
+                <li><a href="#">🗜️ Dados.zip</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p><strong>VERSÃO 0.1</strong> — Desenvolvido com dedicação por Otavio Augusto.</p>
+        <p>Autor: Otavio Augusto (@otavioaugust) • Contato: otavio.santos@saude.gov.br • SAES / DEEQAE / COQAE –
+            Ministério da Saúde</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

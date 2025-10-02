@@ -1,0 +1,181 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #0078D7;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.highlight {
+  color: #FFD700;
+  font-weight: bold;
+}
+
+.form-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.card {
+  flex: 1 1 250px;
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
+}
+
+.card label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+}
+
+.azul { background-color: #0078D7; }
+.verde { background-color: #28a745; }
+.amarelo { background-color: #ffc107; color: #333; }
+.vermelho { background-color: #dc3545; }
+.cinza { background-color: #6c757d; }
+
+.buttons {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+}
+
+button:first-of-type {
+  background-color: #0078D7;
+}
+
+.clear-btn {
+  background-color: #6c757d;
+}
+
+.progress-container {
+  width: 80%;
+  margin: 30px auto;
+  display: none;
+}
+
+.progress-bar {
+  background-color: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 90%;
+  background-color: #28a745;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bold;
+  border-radius: 20px 0 0 20px;
+}
+
+.files-container {
+  width: 80%;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  display: none;
+}
+
+.files-container h2 {
+  margin-bottom: 15px;
+}
+
+.files-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.files-container li {
+  margin: 10px 0;
+}
+
+.files-container a {
+  text-decoration: none;
+  color: #0078D7;
+  font-weight: bold;
+}
+
+.footer {
+  background-color: #b30000;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  padding: 8px 12px;
+  border-top: 2px solid #800000;
+}
+.footer p {
+  margin: 4px 0;
+}
+.footer a {
+  color: #FFD700;
+  text-decoration: none;
+}
+
+/* Centraliza o container */
+.progress-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Estiliza a barra */
+.progress-bar {
+  width: 100%;
+  height: 30px;
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Estiliza o preenchimento */
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #4caf50, #81c784);
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+  transition: width 0.1s linear;
+}
