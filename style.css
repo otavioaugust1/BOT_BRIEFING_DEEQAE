@@ -175,7 +175,7 @@ button:first-of-type {
   color: #fff;
   font-weight: bold;
   font-size: 14px;
-  line-height: 30px;
+  line-height: 10px;
   text-align: center;
   transition: width 0.1s linear;
 }
