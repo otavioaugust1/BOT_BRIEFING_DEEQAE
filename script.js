@@ -51,10 +51,9 @@ function updateUF() {
   clearSelect("unidade");
 
   document.getElementById("uf").addEventListener("change", () => {
-  updateMacro();
-  updateMunicipios(); // ✅ Agora sim, com UF já atualizada
-});
-
+    updateMacro();
+    updateMunicipios();
+  });
 }
 
 function updateMacro() {
@@ -121,7 +120,6 @@ function updateMunicipios() {
   municipioSelect.disabled = false;
 }
 
-
 function updateUnidade() {
   const municipio = document.getElementById("municipio").value;
   const unidadeSelect = document.getElementById("unidade");
@@ -144,15 +142,7 @@ function clearSelect(id) {
   if (el) el.innerHTML = '<option value="">TODOS</option>';
 }
 
-function startLoading() {
-  document.getElementById("progressSection").style.display = "block";
-  setTimeout(() => {
-    renderFiles();
-    document.getElementById("filesSection").style.display = "block";
-  }, 1200);
-}
-
-function renderFiles() {
+function gerarResumo() {
   const regiao = document.getElementById("regiao").value || "TODOS";
   const uf = document.getElementById("uf").value || "TODOS";
   const macro = document.getElementById("macro").value || "TODOS";
@@ -160,7 +150,7 @@ function renderFiles() {
   const municipio = document.getElementById("municipio").value || "TODOS";
   const unidade = document.getElementById("unidade").value || "TODOS";
 
-  const resumo = `
+  return `
     <strong>Briefing Gerado:</strong><br>
     Região: ${regiao}<br>
     UF: ${uf}<br>
@@ -169,30 +159,37 @@ function renderFiles() {
     Município: ${municipio}<br>
     Unidade: ${unidade}<br>
   `;
+}
 
-  document.getElementById("filesSection").innerHTML = `
-    <h2>Arquivos Gerados</h2>
+function renderFilesCompleto() {
+  const resumo = gerarResumo();
+  document.getElementById("filesSection_c").innerHTML = `
+    <h2>Arquivos Gerados - COMPLETO</h2>
     <p>${resumo}</p>
     <ul>
-      <li><a href="#">📄 Briefing.docx</a></li>
-      <li><a href="#">🗜️ Dados.zip</a></li>
+      <li><a href="#">📄 Briefing_C.docx</a></li>
+      <li><a href="#">🗜️ Dados_C.zip</a></li>
     </ul>
   `;
 }
 
-function clearForm() {
-  document.querySelectorAll("select").forEach(select => select.selectedIndex = 0);
-  document.getElementById("progressSection").style.display = "none";
-  document.getElementById("filesSection").style.display = "none";
-  updateUF();
+function renderFilesSimplificado() {
+  const resumo = gerarResumo();
+  document.getElementById("filesSection_s").innerHTML = `
+    <h2>Arquivos Gerados - SIMPLIFICADO</h2>
+    <p>${resumo}</p>
+    <ul>
+      <li><a href="#">📄 Briefing_S.docx</a></li>
+      <li><a href="#">🗜️ Dados_S.zip</a></li>
+    </ul>
+  `;
 }
-
 
 function animateProgressBar() {
   const fill = document.getElementById("progressFill");
   let progress = 0;
-  const duration = 10000; // 10 segundos
-  const interval = 100; // atualiza a cada 100ms
+  const duration = 10000;
+  const interval = 100;
   const step = 100 / (duration / interval);
 
   const timer = setInterval(() => {
@@ -206,12 +203,28 @@ function animateProgressBar() {
   }, interval);
 }
 
-
-function startLoading() {
+function startLoadingCompleto() {
   document.getElementById("progressSection").style.display = "block";
-  animateProgressBar(); // ⬅️ inicia animação
+  animateProgressBar();
   setTimeout(() => {
-    renderFiles();
-    document.getElementById("filesSection").style.display = "block";
-  }, 10000); // espera os 10 segundos da animação
+    renderFilesCompleto();
+    document.getElementById("filesSection_c").style.display = "block";
+  }, 10000);
+}
+
+function startLoadingSimplificado() {
+  document.getElementById("progressSection").style.display = "block";
+  animateProgressBar();
+  setTimeout(() => {
+    renderFilesSimplificado();
+    document.getElementById("filesSection_s").style.display = "block";
+  }, 10000);
+}
+
+function clearForm() {
+  document.querySelectorAll("select").forEach(select => select.selectedIndex = 0);
+  document.getElementById("progressSection").style.display = "none";
+  document.getElementById("filesSection_c").style.display = "none";
+  document.getElementById("filesSection_s").style.display = "none";
+  updateUF();
 }

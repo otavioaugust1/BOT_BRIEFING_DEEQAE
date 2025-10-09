@@ -14,6 +14,41 @@ body {
   text-align: center;
   padding: 20px;
 }
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.logo-card.branco {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  max-height: 80px;
+  width: auto;
+}
+
+/* Responsivo para telas menores */
+@media (max-width: 600px) {
+  .header-content {
+    flex-direction: column;
+  }
+
+  .logo-card {
+    margin-bottom: 10px;
+  }
+}
+
 
 .highlight {
   color: #FFD700;
@@ -56,6 +91,7 @@ select {
 .amarelo { background-color: #ffc107; color: #333; }
 .vermelho { background-color: #dc3545; }
 .cinza { background-color: #6c757d; }
+.branco { background-color: #ffffff; }
 
 .buttons {
   width: 100%;
