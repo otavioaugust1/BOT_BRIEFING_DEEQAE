@@ -73,8 +73,12 @@ button {
   color: white;
 }
 
-button:first-of-type {
+.completo-btn{
   background-color: #0078D7;
+}
+
+.simplif-btn{
+   background-color: #0078D7;
 }
 
 .clear-btn {
