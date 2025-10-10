@@ -234,17 +234,23 @@ button {
 }
 
 .logout-btn {
-    padding: 8px 15px;
-    background-color: #dc3545; /* Vermelho/perigo */
-    color: white;
-    border: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 6px 12px;
+    background-color: #f8f9fa; /* Cinza claro */
+    color: #6c757d; /* Cinza escuro */
+    border: 1px solid #ced4da;
     border-radius: 4px;
     cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
-    white-space: nowrap; 
+    font-weight: normal;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap;
+    z-index: 1000;
 }
 
 .logout-btn:hover {
-    background-color: #c82333;
+    background-color: #e2e6ea;
+    color: #343a40;
 }
