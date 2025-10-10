@@ -228,3 +228,78 @@ function clearForm() {
   document.getElementById("filesSection_s").style.display = "none";
   updateUF();
 }
+
+
+
+/* LÓGICA DE LOGIN */
+document.getElementById('loginForm').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  // Credenciais de Demonstração
+  const CORRECT_USER = 'COQAE';
+  const CORRECT_PASS = '123456';
+
+  const usernameInput = document.getElementById('username').value.trim();
+  const passwordInput = document.getElementById('password').value.trim();
+  const errorMessage = document.getElementById('errorMessage');
+
+  // Verifica se as credenciais de demonstração estão corretas
+  if (usernameInput === CORRECT_USER && passwordInput === CORRECT_PASS) {
+    errorMessage.textContent = '';
+    errorMessage.style.display = 'none';
+
+    // REDIRECIONAMENTO PARA O SEU FRONT-END REAL
+    window.location.href = 'briefing_app.html';
+
+  } else {
+    // Caso o usuário erre a senha/login de demonstração
+    errorMessage.textContent = 'Usuário ou senha de demonstração incorretos.';
+    errorMessage.style.display = 'block';
+  }
+});
+
+
+/* LÓGICA DO MODAL "ESQUECEU SUA SENHA" */
+function openForgotModal() {
+  document.getElementById('forgotModal').style.display = 'flex';
+}
+
+function closeForgotModal() {
+  document.getElementById('forgotModal').style.display = 'none';
+  // Reseta o formulário e a mensagem ao fechar
+  document.getElementById('forgotForm').reset();
+  document.getElementById('forgotMessage').style.display = 'none';
+  document.getElementById('forgotForm').style.display = 'block';
+}
+
+function submitForgotForm() {
+  const emailInput = document.getElementById('forgotEmail');
+  const forgotMessage = document.getElementById('forgotMessage');
+  const forgotForm = document.getElementById('forgotForm');
+
+  // Garante que o e-mail não está vazio e é válido (pelo browser)
+  if (emailInput.value.trim() && forgotForm.checkValidity()) {
+
+    // 1. Esconde o formulário
+    forgotForm.style.display = 'none';
+
+    // 2. Define e mostra a mensagem de sucesso
+    forgotMessage.textContent = '✅ Seu e-mail foi enviado com sucesso. Entraremos em contato em breve.';
+    forgotMessage.style.display = 'block';
+
+    // 3. Fecha o modal automaticamente após 5 segundos
+    setTimeout(function () {
+      closeForgotModal();
+    }, 5000);
+
+  } else {
+    alert("Por favor, preencha o campo de e-mail corretamente.");
+  }
+}
+
+/** * FUNÇÃO DE SAÍDA (LOGOUT): 
+ * Redireciona o usuário de volta para a tela de login (index.html).
+ */
+function logout() {
+    window.location.href = 'index.html';
+}
