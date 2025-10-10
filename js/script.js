@@ -249,7 +249,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     errorMessage.style.display = 'none';
 
     // REDIRECIONAMENTO PARA O SEU FRONT-END REAL
-    window.location.href = 'briefing_app.html';
+    window.location.href = '/briefing_app.html';
 
   } else {
     // Caso o usuário erre a senha/login de demonstração
